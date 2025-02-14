@@ -175,8 +175,24 @@ h2.title_l {
     border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
 }
 
+.inner{
+    padding: 16px;
+    color: hsla(0,0%,10%,0.6) !important;
+}
+.inner span{
+    font-size: 13px;
+}
 
+.inner .image-slide{
+    max-width: 60px;
+    margin-right: 10px;
+    width: 80%;
+}
 
+.inner .content-slide {
+    width: calc(100% - 60px);
+    padding-left: 10px;
+}
 @media screen and (max-width: 1150px) {
     .container{
         width: 90%;
