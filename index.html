@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MembersDirect Gold Membership</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+   
+    <!-- jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- jQuery Modal plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.css"> <!-- jQuery Modal CSS -->
+
+
+    <style>
+
+        body {
+            background-color: white; /* Default background color */
+        }
+
+        /* CSS to make the background lighter when modal is active */
+        .modal-overlay {
+            background-color: rgba(255, 255, 255, 0.8) !important; /* Lighter background color with opacity */
+        }
+
+        .modal-open-body {
+            background-color: rgba(255, 255, 255, 0.5) !important; /* Lighter gray background for the page */
+        }
+    
+    </style>
+
+<body>
+    <div class="container">
+        <div class="main_box">
+            <h2 class="title_l">SAME DAY HOTEL GIFT CARD OFFER</h2>
+            <div class="header-label">
+                <p><i>ACT FAST! This Same Day Offer is Good for 24 Hours!</i></p>  
+            </div>
+            <div class="webpage_content">
+                <div class="row_div">
+                    <div class="left-slide">
+                        <div>
+                            <img width="100%" src="img/image-1.jpeg" alt="">
+                        </div>
+                        <h2 class="title_s">WHAT'S INCLUDED</h2>
+                        <ul style="list-style-image: url('img/bullet.png');">
+                            <li>
+                                <p><b>Access over One Million Hotel Rooms</b></p>
+                            </li>
+                            <li>
+                                <p><b>Stay at Hotels like Hilton, Marriot and Wyndam</b></p>
+                            </li>
+                            <li>
+                                <p><b>Hotel Gift Card never Expires </b></p>
+                            </li>
+                            <li>
+                                <p><b>Friends and Family Hotel Gift Card available </b></p>
+                            </li>
+                            <li>
+                                <p><b>Money Back guarantee</b></p>
+                            </li>
+                        </ul>
+                        <br>
+                        <hr>
+                        <br>
+
+                        <h2 class="title_s" style="margin-top: 0;">WHAT PEPOLE ARE SAYING …</h2>
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <div class="card-description">
+                                    <p>“Easy to make online reservations, a lot of hotels to choose from, great deal."</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="author">
+                                        <div class="nameAddress">
+                                            <p>Janet S</p>
+                                            <span>Nashville TN</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-description">
+                                    <p>"Wasn’t sure about getting the hotel gift card, but it worked! Easy online booking engine saved 50 bucks!"</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="author">
+                                        <div class="nameAddress">
+                                            <p>Susan J.</p>
+                                            <span>Charlotte NC</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-description">
+                                    <p>"My sister gave this to me as a birthday gift, pretty cool we used it and never had to leave town, nice little weekend getaway. Thanks Sis!"</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="author">
+                                        <div class="nameAddress">
+                                            <p>Cathleen K.</p>
+                                            <span>Atlanta GA</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-slide">
+                        <div class="top-content">
+                            <div class="image-slide">
+                                <div>
+                                    <img width="100%" src="img/image-2.jpeg" alt="">
+                                </div>
+                            </div>
+                            <div class="content-slide">
+                                <span>Claim Your Complimentary Hotel Gift Card today and access hundreds of thousands of Hotel rooms Worldwide - a $50.00 Value!</span>
+                            </div>
+                        </div>
+
+                        <!-- Add Stripe Form  Here -->
+                        <div style="margin-top: 15px;">
+                            
+                            <div id="checkout">
+                                <!-- Checkout will insert the payment form here -->
+                            </div>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <img style="max-width: 410px; width:100%; margin: auto;" src="img/Screenshot 2025-02-15 at 1.08.12 AM.png" alt="">
+                        </div>
+
+                        <div class="accordion">
+                            <div class="accordion-item">
+                              <div class="accordion-item-header">
+                                Is this refundable?
+                              </div>
+                              <div class="accordion-item-body">
+                                <div class="accordion-item-body-content">
+                                This is a Risk Free Membership. You may cancel at any time within the first 7-Days and receive a full refund.
+
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="accordion-item">
+                              <div class="accordion-item-header">
+                                How long will I have access for? 
+                              </div>
+                              <div class="accordion-item-body">
+                                <div class="accordion-item-body-content"></div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+        accordionItemHeaders.forEach(accordionItemHeader => {
+            accordionItemHeader.addEventListener("click", event => {
+                
+                const currentlyActiveAccordionItemHeader = document.querySelector(".accordion-item-header.active");
+                if(currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader!==accordionItemHeader) {
+                currentlyActiveAccordionItemHeader.classList.toggle("active");
+                currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+                }
+
+                accordionItemHeader.classList.toggle("active");
+                const accordionItemBody = accordionItemHeader.nextElementSibling;
+                if(accordionItemHeader.classList.contains("active")) {
+                accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+                }
+                else {
+                accordionItemBody.style.maxHeight = 0;
+                }
+                
+            });
+        });
+    </script>
+
+
+
+
+    
+
+</body>
+</html>
